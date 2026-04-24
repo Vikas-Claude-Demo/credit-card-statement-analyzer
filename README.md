@@ -71,4 +71,4 @@ This project is optimized for deployment on Vercel.
 This project is licensed under the Apache-2.0 License. See the [LICENSE](LICENSE) file for details.
 
 ---
-Built with ❤️ by [Your Name/Company]
+Built with ❤️ by Brilworks
