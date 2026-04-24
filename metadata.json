@@ -1,0 +1,6 @@
+{
+  "name": "Credit Card Statement Analyzer",
+  "description": "Extract transaction details, categories, and remarks from PDF statements using AI. Visualize spending metrics and export to CSV.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
