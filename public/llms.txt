@@ -3,7 +3,7 @@
 StatementFlow is a specialized AI application designed to parse, analyze, and visualize credit card statements. It leverages the Google Gemini 2.0 Flash model to extract high-fidelity transaction data from PDF and text-based statements.
 
 ## Project Details
-- **Website**: https://statement-analyzer.brilworks.com
+- **Website**: https://statementflow.brilworks.com
 - **Source Code**: https://github.com/drdhavaltrivedi/credit-card-statement-analyzer
 - **Organization**: Brilworks (https://brilworks.com)
 

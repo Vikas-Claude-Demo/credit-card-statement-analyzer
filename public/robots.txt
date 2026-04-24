@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://statement-analyzer.brilworks.com/sitemap.xml
+Sitemap: https://statementflow.brilworks.com/sitemap.xml
