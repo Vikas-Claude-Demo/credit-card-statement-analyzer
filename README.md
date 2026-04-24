@@ -47,7 +47,7 @@ StatementFlow is a powerful, AI-driven credit card statement analyzer that trans
 3.  **Set up environment variables**:
     Create a `.env` file in the root directory and add your Gemini API key:
     ```env
-    VITE_GEMINI_API_KEY=your_api_key_here
+    GEMINI_API_KEY=your_api_key_here
     ```
 
 4.  **Run the application**:
@@ -63,7 +63,7 @@ StatementFlow is a powerful, AI-driven credit card statement analyzer that trans
 This project is optimized for deployment on Vercel.
 
 1.  Connect your GitHub repository to Vercel.
-2.  Add `VITE_GEMINI_API_KEY` to your environment variables in the Vercel dashboard.
+2.  Add `GEMINI_API_KEY` to your environment variables in the Vercel dashboard.
 3.  Vercel will automatically detect the Vite configuration and deploy your app.
 
 ## 📄 License
