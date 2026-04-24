@@ -159,9 +159,43 @@ export default function App() {
         </AnimatePresence>
       </main>
 
-      <footer className="py-8 border-t border-bento-line">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-            <p className="text-[10px] font-bold uppercase tracking-widest text-bento-muted opacity-50">StatementFlow AI Engine • Secure Mode v2.4</p>
+      <footer className="py-12 border-t border-bento-line mt-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center border-b border-bento-line/50 pb-10">
+            <div className="space-y-4">
+              <div className="logo text-lg font-extrabold tracking-tighter text-bento-primary">
+                Statement<span className="text-bento-accent">Flow</span>
+              </div>
+              <p className="text-xs text-bento-muted font-medium leading-relaxed max-w-xs">
+                A Brilworks Team Innovation. Empowering financial clarity through state-of-the-art AI analysis.
+              </p>
+            </div>
+            
+            <div className="flex flex-col items-center md:items-start space-y-2">
+              <div className="text-[10px] font-black uppercase tracking-widest text-bento-primary mb-1">Architecture</div>
+              <div className="flex items-center space-x-4">
+                <span className="text-xs font-bold text-bento-muted hover:text-bento-accent transition-colors cursor-default">Privacy First</span>
+                <div className="w-1 h-1 bg-bento-border rounded-full" />
+                <span className="text-xs font-bold text-bento-muted hover:text-bento-accent transition-colors cursor-default">Instant Access</span>
+              </div>
+            </div>
+
+            <div className="flex flex-col md:items-end space-y-2 text-center md:text-right">
+              <div className="text-[10px] font-black uppercase tracking-widest text-bento-primary mb-1">Developer</div>
+              <a href="https://brilworks.com" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-bento-muted hover:text-bento-primary transition-colors">
+                By Brilworks
+              </a>
+            </div>
+          </div>
+
+          <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-[10px] font-bold uppercase tracking-widest text-bento-muted opacity-50">
+              © 2026 . All processing happens in real-time.
+            </p>
+            <div className="flex items-center space-x-6">
+              <span className="text-[10px] font-black uppercase tracking-widest text-bento-muted opacity-30">v2.5 Production Ready</span>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
