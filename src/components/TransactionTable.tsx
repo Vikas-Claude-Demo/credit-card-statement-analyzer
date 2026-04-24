@@ -153,22 +153,25 @@ export function TransactionTable({ data }: TransactionTableProps) {
         <table className="w-full text-left">
           <thead>
             <tr className="bg-white text-bento-muted font-bold border-b border-bento-line">
-              <th className="px-6 py-4 text-[11px] uppercase tracking-widest">Date</th>
-              <th className="px-6 py-4 text-[11px] uppercase tracking-widest">Description</th>
-              <th className="px-6 py-4 text-[11px] uppercase tracking-widest text-center">Type</th>
-              <th className="px-6 py-4 text-[11px] uppercase tracking-widest">Category</th>
-              <th className="px-6 py-4 text-[11px] uppercase tracking-widest text-right">Amount</th>
-              <th className="px-10 py-4 text-[11px] uppercase tracking-widest">Remarks</th>
+              <th className="px-4 sm:px-6 py-4 text-[10px] sm:text-[11px] uppercase tracking-widest">Date</th>
+              <th className="px-4 sm:px-6 py-4 text-[10px] sm:text-[11px] uppercase tracking-widest">Description</th>
+              <th className="hidden md:table-cell px-6 py-4 text-[11px] uppercase tracking-widest text-center">Type</th>
+              <th className="hidden sm:table-cell px-6 py-4 text-[11px] uppercase tracking-widest">Category</th>
+              <th className="px-4 sm:px-6 py-4 text-[10px] sm:text-[11px] uppercase tracking-widest text-right">Amount</th>
+              <th className="hidden lg:table-cell px-10 py-4 text-[11px] uppercase tracking-widest">Remarks</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-bento-line">
             {filteredTransactions.map((t, i) => (
               <tr key={i} className="hover:bg-slate-50 transition-colors group">
-                <td className="px-6 py-5 text-bento-muted text-xs font-medium tabular-nums">{t.date}</td>
-                <td className="px-6 py-5">
-                  <div className="font-bold text-bento-primary text-sm tracking-tight leading-snug">{t.description}</div>
+                <td className="px-4 sm:px-6 py-4 sm:py-5 text-bento-muted text-[10px] sm:text-xs font-medium tabular-nums">{t.date}</td>
+                <td className="px-4 sm:px-6 py-4 sm:py-5">
+                  <div className="font-bold text-bento-primary text-xs sm:text-sm tracking-tight leading-snug">{t.description}</div>
+                  <div className="sm:hidden mt-1">
+                    <span className="text-[9px] font-black uppercase tracking-widest text-bento-accent">{t.category}</span>
+                  </div>
                 </td>
-                <td className="px-6 py-5 text-center">
+                <td className="hidden md:table-cell px-6 py-5 text-center">
                   <span className={cn(
                     "px-2 py-0.5 rounded text-[9px] font-black uppercase tracking-tighter",
                     t.transactionType === 'payment' ? "bg-purple-100 text-purple-700" :
@@ -178,7 +181,7 @@ export function TransactionTable({ data }: TransactionTableProps) {
                     {t.transactionType}
                   </span>
                 </td>
-                <td className="px-6 py-5">
+                <td className="hidden sm:table-cell px-6 py-5">
                   <span className={cn(
                     "px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-tight inline-block border",
                     t.category.toLowerCase().includes('food') ? "bg-orange-50 text-orange-700 border-orange-100" :
@@ -190,13 +193,13 @@ export function TransactionTable({ data }: TransactionTableProps) {
                   </span>
                 </td>
                 <td className={cn(
-                  "px-6 py-5 text-right font-black text-sm tracking-tight tabular-nums",
+                  "px-4 sm:px-6 py-4 sm:py-5 text-right font-black text-xs sm:text-sm tracking-tight tabular-nums",
                   t.transactionType === 'credit' || t.transactionType === 'payment' ? "text-emerald-600" : "text-bento-primary"
                 )}>
                   {t.transactionType === 'credit' || t.transactionType === 'payment' ? '-' : ''}
                   {formatCurrency(t.amount, summary.currency)}
                 </td>
-                <td className="px-10 py-5">
+                <td className="hidden lg:table-cell px-10 py-5">
                   <div className="text-[11px] text-bento-accent font-black uppercase tracking-widest max-w-[200px] leading-relaxed italic opacity-80">{t.remarks}</div>
                 </td>
               </tr>

@@ -38,9 +38,9 @@ export default function App() {
   return (
     <div className="min-h-screen font-sans">
       {/* Header */}
-      <header className="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
+      <header className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6 flex items-center justify-between">
         <div className="flex items-center space-x-2 cursor-pointer group" onClick={reset}>
-          <div className="logo text-xl font-extrabold tracking-tighter text-bento-primary">
+          <div className="logo text-lg sm:text-xl font-extrabold tracking-tighter text-bento-primary">
             Statement<span className="text-bento-accent">Flow</span>
           </div>
         </div>
@@ -62,7 +62,7 @@ export default function App() {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-6 pb-20">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 pb-12 sm:pb-20">
         <AnimatePresence mode="wait">
           {!data ? (
             <motion.div
@@ -70,20 +70,20 @@ export default function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="flex flex-col items-center justify-center min-h-[60vh] space-y-12"
+              className="flex flex-col items-center justify-center min-h-[70vh] sm:min-h-[60vh] space-y-8 sm:space-y-12"
             >
-              <div className="text-center space-y-4">
-                <h2 className="text-5xl font-black text-bento-primary tracking-tight leading-[1.1]">
+              <div className="text-center space-y-3 sm:space-y-4">
+                <h2 className="text-3xl sm:text-5xl font-black text-bento-primary tracking-tight leading-[1.1]">
                   AI Precision <br />
                   <span className="text-bento-muted opacity-40">Financial Analytics</span>
                 </h2>
-                <p className="text-bento-muted font-medium max-w-sm mx-auto">
+                <p className="text-xs sm:text-sm text-bento-muted font-medium max-w-[280px] sm:max-w-sm mx-auto leading-relaxed">
                   Automatically parse complex PDF statements into actionable financial insights.
                 </p>
               </div>
               <FileUpload onUpload={handleUpload} isProcessing={isProcessing} />
               
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 w-full max-w-4xl">
                 <FeatureItem 
                   title="Amex & Chase" 
                   description="Multi-bank parsing logic." 
@@ -106,36 +106,36 @@ export default function App() {
               className="space-y-6"
             >
               {/* Controls Header */}
-              <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-4">
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-6 pb-4">
                 <div className="space-y-1">
                   <div className="flex items-center space-x-2 text-[10px] font-black uppercase tracking-[0.2em] text-bento-accent">
                     <History className="w-3 h-3" />
                     <span>Extraction Ready</span>
                   </div>
-                  <h2 className="text-3xl font-black text-bento-primary tracking-tight">
+                  <h2 className="text-2xl sm:text-3xl font-black text-bento-primary tracking-tight">
                     {data.summary.cardType || "Financial"} Overview
                   </h2>
                 </div>
 
-                <div className="flex bg-white p-1.5 rounded-2xl border border-bento-border shadow-sm">
+                <div className="flex w-full sm:w-auto bg-white p-1 rounded-2xl border border-bento-border shadow-sm">
                   <button
                     onClick={() => setViewMode('dashboard')}
                     className={cn(
-                      "flex items-center space-x-2 px-6 py-2.5 rounded-xl text-xs font-bold transition-all",
+                      "flex-1 sm:flex-none flex items-center justify-center space-x-2 px-4 sm:px-6 py-2 rounded-xl text-[11px] sm:text-xs font-bold transition-all",
                       viewMode === 'dashboard' ? "bg-bento-primary text-white shadow-lg" : "text-bento-muted hover:text-bento-primary"
                     )}
                   >
-                    <LayoutDashboard className="w-4 h-4" />
+                    <LayoutDashboard className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     <span>Dashboard</span>
                   </button>
                   <button
                     onClick={() => setViewMode('transactions')}
                     className={cn(
-                      "flex items-center space-x-2 px-6 py-2.5 rounded-xl text-xs font-bold transition-all",
+                      "flex-1 sm:flex-none flex items-center justify-center space-x-2 px-4 sm:px-6 py-2 rounded-xl text-[11px] sm:text-xs font-bold transition-all",
                       viewMode === 'transactions' ? "bg-bento-primary text-white shadow-lg" : "text-bento-muted hover:text-bento-primary"
                     )}
                   >
-                    <List className="w-4 h-4" />
+                    <List className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     <span>Activity</span>
                   </button>
                 </div>
@@ -159,45 +159,7 @@ export default function App() {
         </AnimatePresence>
       </main>
 
-      <footer className="py-12 border-t border-bento-line mt-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center border-b border-bento-line/50 pb-10">
-            <div className="space-y-4">
-              <div className="logo text-lg font-extrabold tracking-tighter text-bento-primary">
-                Statement<span className="text-bento-accent">Flow</span>
-              </div>
-              <p className="text-xs text-bento-muted font-medium leading-relaxed max-w-xs">
-                A Brilworks Team Innovation. Empowering financial clarity through state-of-the-art AI analysis.
-              </p>
-            </div>
-            
-            <div className="flex flex-col items-center md:items-start space-y-2">
-              <div className="text-[10px] font-black uppercase tracking-widest text-bento-primary mb-1">Architecture</div>
-              <div className="flex items-center space-x-4">
-                <span className="text-xs font-bold text-bento-muted hover:text-bento-accent transition-colors cursor-default">Privacy First</span>
-                <div className="w-1 h-1 bg-bento-border rounded-full" />
-                <span className="text-xs font-bold text-bento-muted hover:text-bento-accent transition-colors cursor-default">Instant Access</span>
-              </div>
-            </div>
-
-            <div className="flex flex-col md:items-end space-y-2 text-center md:text-right">
-              <div className="text-[10px] font-black uppercase tracking-widest text-bento-primary mb-1">Developer</div>
-              <a href="https://brilworks.com" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-bento-muted hover:text-bento-primary transition-colors">
-                By Brilworks
-              </a>
-            </div>
-          </div>
-
-          <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-[10px] font-bold uppercase tracking-widest text-bento-muted opacity-50">
-              © 2026 . All processing happens in real-time.
-            </p>
-            <div className="flex items-center space-x-6">
-              <span className="text-[10px] font-black uppercase tracking-widest text-bento-muted opacity-30">v2.5 Production Ready</span>
-            </div>
-          </div>
-        </div>
-      </footer>
+      </main>
     </div>
   );
 }

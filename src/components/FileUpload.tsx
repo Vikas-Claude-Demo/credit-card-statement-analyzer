@@ -189,7 +189,7 @@ export function FileUpload({ onUpload, isProcessing }: FileUploadProps) {
   };
 
   return (
-    <div className="w-full max-w-xl mx-auto">
+    <div className="w-full max-w-xl mx-auto px-2 sm:px-0">
       <div
         className={cn(
           "relative border-2 border-dashed rounded-3xl p-10 transition-all duration-300 flex flex-col items-center justify-center text-center overflow-hidden",

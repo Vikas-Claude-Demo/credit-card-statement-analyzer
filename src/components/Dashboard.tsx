@@ -32,47 +32,47 @@ export function Dashboard({ data }: DashboardProps) {
   const topCategories = [...categoryData].sort((a, b) => b.value - a.value).slice(0, 5);
 
   return (
-    <div className="grid grid-cols-12 gap-4">
+    <div className="grid grid-cols-12 gap-4 sm:gap-6">
       {/* Stats row */}
-      <div className="col-span-12 md:col-span-3">
+      <div className="col-span-6 md:col-span-3">
         <StatCard 
           label="Total Spent" 
           value={formatCurrency(data.summary.totalSpent, data.summary.currency)} 
-          badge="↑ 12% vs last month"
+          badge="↑ 12%"
           badgeColor="text-emerald-500"
         />
       </div>
-      <div className="col-span-12 md:col-span-3">
+      <div className="col-span-6 md:col-span-3">
         <StatCard 
-          label="Total Credits" 
+          label="Credits" 
           value={formatCurrency(data.summary.totalCredits, data.summary.currency)} 
-          badge="Ready for export"
+          badge="Ready"
         />
       </div>
-      <div className="col-span-12 md:col-span-3">
+      <div className="col-span-6 md:col-span-3">
         <StatCard 
-          label="Transactions" 
+          label="Count" 
           value={data.transactions.length.toString()} 
-          badge={`${categoryData.length} Categories`}
+          badge="Transactions"
         />
       </div>
-      <div className="col-span-12 md:col-span-3">
+      <div className="col-span-6 md:col-span-3">
         <StatCard 
-          label="Statement Period" 
-          value={data.summary.period} 
-          badge="99.8% Accuracy"
+          label="Accuracy" 
+          value="99.8%" 
+          badge="AI Logic"
         />
       </div>
 
       {/* Chart Sections */}
-      <div className="col-span-12 lg:col-span-7 bg-white p-6 rounded-2xl border border-bento-border shadow-sm">
+      <div className="col-span-12 lg:col-span-7 bg-white p-4 sm:p-6 rounded-2xl border border-bento-border shadow-sm">
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center space-x-2">
             <BarChart3 className="w-5 h-5 text-bento-muted" />
             <h3 className="font-bold text-bento-primary">Top Expenses</h3>
           </div>
         </div>
-        <div className="h-[320px]">
+        <div className="h-[280px] sm:h-[320px]">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
               data={[...data.transactions]
@@ -80,33 +80,33 @@ export function Dashboard({ data }: DashboardProps) {
                 .slice(0, 8)
                 .map(t => ({ name: t.description.slice(0, 12), amount: t.amount }))}
               layout="vertical"
-              margin={{ left: 0, right: 30 }}
+              margin={{ left: -20, right: 20 }}
             >
               <XAxis type="number" hide />
-              <YAxis dataKey="name" type="category" width={100} tick={{ fontSize: 11, fill: '#64748B' }} axisLine={false} tickLine={false} />
+              <YAxis dataKey="name" type="category" width={80} tick={{ fontSize: 10, fill: '#64748B' }} axisLine={false} tickLine={false} />
               <Tooltip 
                 formatter={(value: number) => formatCurrency(value, data.summary.currency)}
                 cursor={{ fill: '#F1F5F9' }}
                 contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.05)' }}
               />
-              <Bar dataKey="amount" fill="#0F172A" radius={[0, 6, 6, 0]} />
+              <Bar dataKey="amount" fill="#0F172A" radius={[0, 4, 4, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
       </div>
 
-      <div className="col-span-12 lg:col-span-5 bg-white p-6 rounded-2xl border border-bento-border shadow-sm">
+      <div className="col-span-12 lg:col-span-5 bg-white p-4 sm:p-6 rounded-2xl border border-bento-border shadow-sm">
         <div className="flex items-center space-x-2 mb-6">
           <PieIcon className="w-5 h-5 text-bento-muted" />
           <h3 className="font-bold text-bento-primary">Category Mix</h3>
         </div>
-        <div className="h-[220px]">
+        <div className="h-[200px] sm:h-[220px]">
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie
                 data={categoryData}
-                innerRadius={65}
-                outerRadius={85}
+                innerRadius={60}
+                outerRadius={80}
                 paddingAngle={8}
                 dataKey="value"
               >
@@ -121,11 +121,11 @@ export function Dashboard({ data }: DashboardProps) {
             </PieChart>
           </ResponsiveContainer>
         </div>
-        <div className="mt-4 space-y-3">
+        <div className="mt-4 space-y-2">
           {topCategories.map((cat, i) => (
-            <div key={i} className="flex items-center justify-between text-xs">
+            <div key={i} className="flex items-center justify-between text-[11px]">
               <div className="flex items-center space-x-2">
-                <div className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: COLORS[i % COLORS.length] }} />
+                <div className="w-2 h-2 rounded-sm" style={{ backgroundColor: COLORS[i % COLORS.length] }} />
                 <span className="text-bento-muted font-medium">{cat.name}</span>
               </div>
               <span className="font-bold text-bento-primary">{formatCurrency(cat.value, data.summary.currency)}</span>
