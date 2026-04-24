@@ -4,6 +4,12 @@ StatementFlow is a powerful, AI-driven credit card statement analyzer that trans
 
 ![StatementFlow Logo](public/favicon.png)
 
+## 🌟 Overview
+
+**StatementFlow** is a high-precision financial utility designed to simplify credit card statement management. By combining the power of **Google Gemini 2.0 Flash** with a modern, intuitive interface, it provides instant clarity on your spending habits.
+
+**Keywords**: *Credit Card Statement Analyzer, AI Finance, PDF Transaction Extraction, Gemini AI, Spending Insights, Financial Dashboard, StatementFlow, Brilworks.*
+
 ## 🚀 Features
 
 -   **AI-Powered Parsing**: Uses Google Gemini 2.0 Flash to accurately extract transaction details from PDF statements with 99% logic precision.
